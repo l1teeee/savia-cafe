@@ -9,7 +9,6 @@ import { CafeMenu } from "@/components/sections/CafeMenu";
 import { Sustainability } from "@/components/sections/Sustainability";
 import { ExperienceGallery } from "@/components/sections/ExperienceGallery";
 import { Locations } from "@/components/sections/Locations";
-import { RitualGallery } from "@/components/sections/RitualGallery";
 import { SharedMoments } from "@/components/sections/SharedMoments";
 import { Newsletter } from "@/components/sections/Newsletter";
 import { site } from "@/config/site";
@@ -44,7 +43,6 @@ export default function Home() {
         <Sustainability />
         <ExperienceGallery />
         <Locations />
-        <RitualGallery />
         <SharedMoments />
         <Newsletter />
       </main>

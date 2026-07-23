@@ -73,7 +73,6 @@ test("landing page keeps one h1 and all required sections", async () => {
     "Sustainability",
     "ExperienceGallery",
     "Locations",
-    "RitualGallery",
     "SharedMoments",
     "Newsletter",
   ]) {

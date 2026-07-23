@@ -246,6 +246,95 @@ section[id] {
   animation: hero-video-loader 1.6s ease-in-out infinite;
 }
 
+/* Póster editorial de Momentos Savia: reglas explícitas para conservar la
+   composición al escalar, independientemente del orden de las utilidades. */
+.shared-moments {
+  padding-block: clamp(3rem, 7vw, 7rem);
+  background: #e7e0d3;
+}
+
+.shared-moments-frame {
+  width: 100%;
+  max-width: 80rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 3rem);
+}
+
+.shared-moments-poster {
+  position: relative;
+  width: 86%;
+  aspect-ratio: 1.22;
+  margin-inline: auto;
+  overflow: hidden;
+  border-radius: clamp(0.75rem, 2vw, 1rem);
+  background: #3f6c56;
+}
+
+.shared-moments-media {
+  position: absolute;
+  z-index: 1;
+  top: 23%;
+  left: 29%;
+  width: 43%;
+  height: 59%;
+  overflow: hidden;
+  border-radius: clamp(0.5rem, 1.5vw, 1rem);
+  object-fit: cover;
+}
+
+.shared-moments-title {
+  position: absolute;
+  z-index: 2;
+  top: 11%;
+  left: 14%;
+  margin: 0;
+  color: #8ebda6;
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  font-size: clamp(2.1rem, 7vw, 5.5rem);
+  font-weight: 900;
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.shared-moments-title span {
+  display: block;
+}
+
+.shared-moments-cookies {
+  position: absolute;
+  z-index: 3;
+  top: 9%;
+  left: 68%;
+  width: 22%;
+  color: #1a261f;
+}
+
+.shared-moments-quote {
+  position: absolute;
+  z-index: 2;
+  top: 71%;
+  left: 46%;
+  display: flex;
+  align-items: center;
+  width: 41%;
+  min-height: 19%;
+  padding: clamp(0.5rem, 1.7vw, 1.4rem) clamp(0.55rem, 1.7vw, 1.6rem);
+  border-radius: clamp(0.5rem, 1.35vw, 1rem);
+  background: rgba(0, 0, 0, 0.72);
+}
+
+.shared-moments-quote p {
+  margin: 0;
+  color: #f1ece5;
+  font-size: clamp(0.5rem, 1.1vw, 1rem);
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .shimmer::after {
     animation: shimmer 2.2s ease-in-out infinite;

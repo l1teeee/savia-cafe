@@ -70,8 +70,9 @@ export interface GalleryImage {
   id: string;
   src: string;
   alt: string;
-  aspectClass: string;
-  prominent?: boolean;
+  title: string;
+  description: string;
+  span: string;
 }
 
 export type LocationService =

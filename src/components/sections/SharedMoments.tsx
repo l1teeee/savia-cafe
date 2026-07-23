@@ -1,63 +1,83 @@
-import { ArrowUpRight } from "lucide-react";
-import { Button } from "@/components/ui/Button";
-import { Container } from "@/components/ui/Container";
-import { SmartImage } from "@/components/ui/SmartImage";
-import { Reveal } from "@/components/motion/Reveal";
+function CookieIllustration() {
+  return (
+    <svg
+      viewBox="0 0 132 96"
+      fill="none"
+      aria-hidden="true"
+      className="shared-moments-cookies cookies"
+    >
+      <g
+        transform="translate(69 6) rotate(24 23 23)"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <path d="M23 1C35 1 45 10 45 22c0 13-10 23-22 23S1 35 1 22C1 10 11 1 23 1Z" />
+        <circle cx="15" cy="14" r="1.8" fill="currentColor" stroke="none" />
+        <circle cx="31" cy="13" r="1.8" fill="currentColor" stroke="none" />
+        <circle cx="34" cy="30" r="1.8" fill="currentColor" stroke="none" />
+        <circle cx="15" cy="31" r="1.8" fill="currentColor" stroke="none" />
+        <circle cx="24" cy="22" r="1.8" fill="currentColor" stroke="none" />
+      </g>
+      <g
+        transform="translate(36 34) rotate(-12 26 26)"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="2"
+      >
+        <path d="M26 1C40 1 51 12 51 26S40 51 26 51 1 40 1 26 12 1 26 1Z" />
+        <circle cx="16" cy="16" r="2" fill="currentColor" stroke="none" />
+        <circle cx="35" cy="15" r="2" fill="currentColor" stroke="none" />
+        <circle cx="39" cy="34" r="2" fill="currentColor" stroke="none" />
+        <circle cx="17" cy="36" r="2" fill="currentColor" stroke="none" />
+        <circle cx="27" cy="27" r="2" fill="currentColor" stroke="none" />
+      </g>
+    </svg>
+  );
+}
 
 export function SharedMoments() {
   return (
     <section
       id="momentos"
       aria-labelledby="momentos-heading"
-      className="bg-crema py-16 sm:py-20 lg:py-24"
+      className="shared-moments section"
     >
-      <Container>
-        <div className="overflow-hidden rounded-[28px] bg-verde px-6 py-10 shadow-[0_18px_50px_rgba(23,45,33,0.18)] sm:px-10 sm:py-12 lg:px-14 lg:py-16">
-          <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal>
-              <p className="text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-verde-claro">
-                Momentos Savia
-              </p>
-              <h2
-                id="momentos-heading"
-                className="font-display font-display-origin-left mt-3 max-w-md text-[clamp(2rem,4vw,3.25rem)] text-crema-clara"
-              >
-                Sorbos que se comparten mejor
-              </h2>
-              <p className="mt-5 max-w-md text-sm leading-relaxed text-crema-clara/85 sm:text-base">
-                Cada taza sale de la barra pensada para una mesa compartida:
-                una pausa, una conversación, un instante que vale la pena
-                alargar.
-              </p>
-              <div className="mt-8">
-                <Button variant="inverted" href="#ubicaciones">
-                  Reserva tu mesa
-                  <ArrowUpRight className="size-4" strokeWidth={1.75} aria-hidden />
-                </Button>
-              </div>
-            </Reveal>
+      <div className="shared-moments-frame frame">
+        <div className="shared-moments-poster poster">
+          <video
+            className="shared-moments-media"
+            autoPlay
+            loop
+            muted
+            playsInline
+            preload="metadata"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source src="/videos/hero-01.mp4" type="video/mp4" />
+          </video>
 
-            <Reveal delay={0.05} className="relative">
-              <SmartImage
-                src="/images/gallery/barista-brewing.webp"
-                alt="Barista sirviendo café de especialidad desde una jarra de vidrio"
-                width={900}
-                height={1100}
-                sizes="(min-width:1024px) 32vw, 88vw"
-                radius="lg"
-                className="w-full"
-                imgClassName="object-cover"
-              />
-              <div className="absolute inset-x-4 bottom-4 rounded-[16px] bg-tinta/90 p-4 sm:inset-x-6 sm:bottom-6 sm:p-5">
-                <p className="text-sm leading-relaxed text-crema-clara sm:text-base">
-                  &quot;Porque un gran café no es solo una bebida: es una
-                  experiencia para compartir.&quot;
-                </p>
-              </div>
-            </Reveal>
+          <h2 id="momentos-heading" className="shared-moments-title title">
+            <span>SIPS WORTH</span>
+            <span>SHARING</span>
+          </h2>
+
+          <CookieIllustration />
+
+          <div className="shared-moments-quote quote">
+            <p>
+              BECAUSE GREAT COFFEE ISN&apos;T JUST
+              <br />
+              A DRINK &mdash; IT&apos;S A SHARED
+              <br />
+              EXPERIENCE.
+            </p>
           </div>
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
