@@ -1,26 +1,253 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-espresso: #382824;
+  --color-cacao: #58433b;
+  --color-marfil: #f1ece5;
+  --color-fondo: #fbf8f3;
+  --color-arena: #ddd5cc;
+  --color-beige-seccion: #f0ece5;
+  --color-hoja: #5c6b52;
+  --color-cta: #a9b49a;
+  --color-terracota: #8e5847;
+  --color-texto: #352824;
+  --color-texto-secundario: #6e5d56;
+  --color-borde: #ddd5cc;
+
+  /* Rebranding editorial — paleta cálida */
+  --color-crema: #f1ebdd;
+  --color-crema-clara: #faf7ef;
+  --color-tostado: #d9c9ac;
+  --color-verde: #3e7058;
+  --color-verde-claro: #a8cfb9;
+  --color-tinta: #171512;
+  --color-cafe: #382e28;
+
+  --font-sans: var(--font-montserrat), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
+:root {
+  --header-h: 4rem;
+}
+
+@media (min-width: 768px) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --header-h: 4.5rem;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-width: 20rem;
+  overflow-x: clip;
+  background-color: #f1ebdd;
+  color: #352824;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::selection {
+  background-color: #382824;
+  color: #f1ece5;
+}
+
+:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+/* El CTA verde hereda un contorno claro por currentColor: se fuerza tinta
+   para mantener contraste sobre el fondo crema. */
+a.bg-verde:focus-visible,
+button.bg-verde:focus-visible {
+  outline-color: var(--color-tinta);
+}
+
+section[id] {
+  scroll-margin-top: calc(var(--header-h) + 0.5rem);
+}
+
+.section-pad {
+  padding-top: clamp(3.5rem, 6vw, 6rem);
+  padding-bottom: clamp(3.5rem, 6vw, 6rem);
+}
+
+.link-underline {
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+
+.link-underline::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: currentColor;
+  transition: width 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.link-underline:hover::after,
+.link-underline:focus-visible::after {
+  width: 100%;
+}
+
+.text-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+/*
+ * Titular display editorial.
+ * Montserrat no tiene eje de anchura, así que la condensación se simula con
+ * scaleX; el peso 900 compensa el afinado de trazo. Sustituir por una fuente
+ * condensada real solo exige cambiar esta regla.
+ */
+.font-display {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  line-height: 0.9;
+  transform: scaleX(0.9);
+  transform-origin: center;
+}
+
+.font-display.font-display-origin-left {
+  transform-origin: left center;
+}
+
+/*
+ * Pestañas integradas en el marco de la fotografía.
+ * Los pseudo-elementos dibujan, con un gradiente radial, las curvas cóncavas
+ * que empalman la pestaña con el borde del marco: sin ellas la unión queda en
+ * ángulo recto. El color debe coincidir con el fondo del marco.
+ */
+/* Va en @layer components a propósito: el CSS sin capa gana SIEMPRE al CSS en
+   capas, así que fuera de aquí estas reglas anularían utilidades de Tailwind
+   como `absolute` o `sm:[--notch:18px]`. */
+@layer components {
+  .notch-tr,
+  .notch-bl {
+    --notch: 12px;
+  }
+
+  .notch-tr::before,
+  .notch-tr::after,
+  .notch-bl::before,
+  .notch-bl::after {
+    content: "";
+    position: absolute;
+    width: var(--notch);
+    height: var(--notch);
+  }
+
+  .notch-tr::before,
+  .notch-tr::after {
+    background: radial-gradient(
+      circle at bottom left,
+      transparent calc(var(--notch) - 0.5px),
+      var(--color-crema-clara, #faf7ef) var(--notch)
+    );
+  }
+
+  .notch-tr::before {
+    top: 0;
+    left: calc(-1 * var(--notch));
+  }
+
+  .notch-tr::after {
+    right: 0;
+    bottom: calc(-1 * var(--notch));
+  }
+
+  .notch-bl::before,
+  .notch-bl::after {
+    background: radial-gradient(
+      circle at top right,
+      transparent calc(var(--notch) - 0.5px),
+      var(--color-crema-clara, #faf7ef) var(--notch)
+    );
+  }
+
+  .notch-bl::before {
+    right: calc(-1 * var(--notch));
+    bottom: 0;
+  }
+
+  .notch-bl::after {
+    top: calc(-1 * var(--notch));
+    left: 0;
+  }
+}
+
+/* Barrido de carga para placeholders de imagen */
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.shimmer {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.35) 50%,
+    transparent 100%
+  );
+}
+
+@keyframes hero-video-loader {
+  0%,
+  100% {
+    background-color: #f8faf8;
+  }
+
+  50% {
+    background-color: #e7ede8;
+  }
+}
+
+.hero-video-loader {
+  background-color: #f8faf8;
+  box-shadow: inset 0 0 0 1px rgba(62, 112, 88, 0.08);
+  animation: hero-video-loader 1.6s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .shimmer::after {
+    animation: shimmer 2.2s ease-in-out infinite;
+  }
 }

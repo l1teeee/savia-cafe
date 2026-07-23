@@ -1,0 +1,86 @@
+<!--
+  EXTRACTO del HTML prototipo original (referencia de composición, NO código de producción).
+  Truncado: el original continuaba con Historia, Orígenes, Proceso, Menú, Sostenibilidad,
+  Galería, Ubicaciones, Newsletter y Footer (ver screenshot-notes.md).
+  PROHIBIDO reutilizar: URLs de googleusercontent, marca "Estrella Coffee Roasters",
+  Tailwind CDN, Material Symbols de Google.
+-->
+<!DOCTYPE html>
+<html lang="es" class="light">
+<head>
+  <!-- Original usaba: Montserrat (Google Fonts), Material Symbols, Tailwind CDN -->
+  <script id="tailwind-config-reference">
+    // Tokens relevantes del prototipo:
+    // colors: background #fef9f2, surface-container #f2ede7, surface-container-low #f8f3ed,
+    //   primary #2b1310, primary-container #432724, on-surface #1d1b18,
+    //   on-surface-variant #504443, secondary #3b6a00, secondary-container #b9f47e,
+    //   outline #827472, outline-variant #d4c3c0, tertiary-fixed-dim #ffb4a1
+    // borderRadius: DEFAULT 1rem, lg 2rem, xl 3rem, full 9999px
+    // spacing: gutter 24px, section-gap 120px, margin-desktop 80px,
+    //   frame-thickness 24px, margin-mobile 20px
+    // fontSize: display-xl 64px/1.1/-0.02em/300, headline-lg 40px/1.2/0.05em/400,
+    //   headline-md 24px/1.4/0.1em/500, body-lg 18px/1.8/0.02em/400,
+    //   body-md 16px/1.6/0.02em/400, label-sm 12px/1.2/0.15em/600
+  </script>
+</head>
+<body class="font-body-md text-on-surface">
+<div class="page-frame"></div>
+<div class="paper-grain"></div>
+
+<header class="fixed top-frame-thickness left-frame-thickness right-frame-thickness z-50
+  bg-background/95 backdrop-blur-md border-b border-primary/10 h-20 px-margin-desktop
+  flex justify-between items-center">
+  <div class="flex items-center gap-8">
+    <!-- logo img (REMOTA - no usar) -->
+    <nav class="hidden md:flex gap-6">
+      <a class="nav-link label-sm text-primary uppercase">Inicio</a>
+      <a class="nav-link label-sm text-on-surface-variant uppercase">Nuestro café</a>
+      <a class="nav-link label-sm text-on-surface-variant uppercase">Menú</a>
+      <a class="nav-link label-sm text-on-surface-variant uppercase">Orígenes</a>
+      <a class="nav-link label-sm text-on-surface-variant uppercase">Sostenibilidad</a>
+    </nav>
+  </div>
+  <div class="flex items-center gap-6">
+    <button>search</button><button>person</button><button>shopping_bag</button>
+    <span class="label-sm border-l border-primary/20 pl-6">ES | EN</span>
+  </div>
+</header>
+
+<main class="pt-32">
+  <!-- HERO: min-h-[80vh], titulo display-xl centrado max-w-4xl,
+       grid md:grid-cols-12: texto (3 col, text-right) / imagen (6 col) / texto (3 col),
+       CTA verde #82B84B pastilla px-10 py-5 uppercase -->
+  <section class="min-h-[80vh] flex flex-col items-center justify-center px-margin-desktop">
+    <h1 class="display-xl text-primary mb-8">Donde el origen se convierte en sabor</h1>
+    <div class="grid md:grid-cols-12 items-center gap-6">
+      <p class="md:col-span-3 text-right body-lg">Seleccionamos cafés cultivados en fincas
+        donde cada cosecha conserva la identidad de su tierra, su clima y su comunidad.</p>
+      <div class="md:col-span-6"><!-- imagen botánica central PNG transparente --></div>
+      <p class="md:col-span-3 text-left body-lg">Trabajamos cada grano con precisión para
+        transformar su origen en una experiencia equilibrada, aromática y memorable.</p>
+    </div>
+    <button class="bg-[#82B84B] text-primary label-sm px-10 py-5 rounded-full uppercase">
+      DESCUBRIR NUESTRO CAFÉ</button>
+  </section>
+
+  <!-- CAFÉS DESTACADOS: header flex justify-between items-end con borde inferior,
+       grid lg:grid-cols-4 gap-6. Card: aspect-[3/4] rounded-lg overflow-hidden,
+       img hover:scale-110 duration-700 (nosotros max 1.03),
+       label "PAÍS • PROCESO", h3 headline-md, p body-md line-clamp-2,
+       fila precio bold + botón outline pastilla "VER DETALLE"
+       hover:bg-primary hover:text-white -->
+  <section class="px-margin-desktop py-section-gap">
+    <div class="flex justify-between items-end mb-16 border-b border-primary/10 pb-8">
+      <h2 class="headline-lg">Una taza para cada momento</h2>
+      <a class="label-sm border-b border-primary/40">Ver colección completa</a>
+    </div>
+    <!-- 4 cards: Etiopía•Lavado $24.00 / Colombia•Honey $21.50 /
+         Costa Rica•Natural $26.00 / Brazil•Pulped Natural $19.00 -->
+  </section>
+
+  <!-- HISTORIA: grid md:grid-cols-2 gap-24 items-center,
+       imagen aspect-[4/5] rounded-lg + columna de texto -->
+  <!-- ...resto truncado: ver screenshot-notes.md para las secciones restantes... -->
+</main>
+</body>
+</html>
